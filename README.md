@@ -16,7 +16,7 @@ On every tagged release, the CI workflow [.github/workflows/release.yml](.github
 
 A full explanation of the workflow is in:
 
-- [docs/release-workflow.md](docs/release-workflow.md)
+- [docs/release-workflow.md](docs/workflows/release-workflow.md)
 
 ### Checking the version
 
