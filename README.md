@@ -1,8 +1,46 @@
 ![Auto Assign](https://github.com/THD-Spatial/demo-repository/actions/workflows/auto-assign.yml/badge.svg)
 
-![Proof HTML](https://github.com/THD-Spatial/demo-repository/actions/workflows/proof-html.yml/badge.svg)
+# Demo repository
 
-# Welcome to your organization's demo respository
-This code repository (or "repo") is designed to demonstrate the best GitHub has to offer with the least amount of noise.
+This repository is a minimal demo for a Go CLI release workflow on GitHub.
 
-The repo includes an `index.html` file (so it can render a web page), two GitHub Actions workflows, and a CSS stylesheet dependency.
+## Go release workflow with build-time versioning
+
+The `./app` directory contains a minimal Go program. It prints a version string via the `internal/version` package.
+
+On every tagged release, the CI workflow [.github/workflows/release.yml](.github/workflows/release.yml):
+
+- builds the release binaries
+- injects the release tag, commit SHA, and build timestamp into the binary (via `-ldflags -X`)
+- uploads the binaries as GitHub Release assets
+
+A full explanation of the workflow is in:
+
+- [docs/release-workflow.md](docs/release-workflow.md)
+
+### Checking the version
+
+Users can check which build they are running using `-v` or `--version`.
+
+Example:
+
+**Command:**
+
+```bash
+./demo_linux_amd64 -v
+```
+
+**Output:**
+
+```bash
+v0.1.1-alpha (commit a0abd66c5eb4d501c93211bafa89ade1d07a2c99, built 2026-02-06T17:11:32Z)
+```
+
+### Reusing this in other projects
+
+You can adapt this template in your own Go program to set up CI-driven release builds and reliable `--version` output, without making version-bump commits.
+
+**Two small “tell it like it is” notes:**
+
+- Use `--version` rather than `-version` (Go’s `flag` package treats single-dash long flags as valid, but it’s not standard CLI UX; `--version` is what people expect).
+- The filename is a bit odd under `.github/workflows/` for a documentation markdown. If you want to be conventional, move it to `docs/release-workflow.md` and link it from the README. It still works where it is, it just looks unusual.
