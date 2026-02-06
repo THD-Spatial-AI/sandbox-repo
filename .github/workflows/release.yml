@@ -1,0 +1,46 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.22.x"
+
+      - name: Build binaries
+        env:
+          VERSION: ${{ github.ref_name }}
+          COMMIT: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          DATE="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          mkdir -p dist
+
+          MOD_PATH="$(cat go.mod | head -n 1 | awk '{print $2}')"
+          MAIN_PKG="./app"
+
+          LDFLAGS="-s -w \
+            -X '${MOD_PATH}/internal/version.Version=${VERSION}' \
+            -X '${MOD_PATH}/internal/version.Commit=${COMMIT}' \
+            -X '${MOD_PATH}/internal/version.Date=${DATE}'"
+
+          GOOS=linux GOARCH=amd64 go build -trimpath -ldflags "$LDFLAGS" -o dist/demo_linux_amd64 %MAIN_PKG
+
+      - name: Upload assets to Github release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
