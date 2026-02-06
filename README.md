@@ -39,8 +39,3 @@ v0.1.1-alpha (commit a0abd66c5eb4d501c93211bafa89ade1d07a2c99, built 2026-02-06T
 ### Reusing this in other projects
 
 You can adapt this template in your own Go program to set up CI-driven release builds and reliable `--version` output, without making version-bump commits.
-
-**Two small “tell it like it is” notes:**
-
-- Use `--version` rather than `-version` (Go’s `flag` package treats single-dash long flags as valid, but it’s not standard CLI UX; `--version` is what people expect).
-- The filename is a bit odd under `.github/workflows/` for a documentation markdown. If you want to be conventional, move it to `docs/release-workflow.md` and link it from the README. It still works where it is, it just looks unusual.
