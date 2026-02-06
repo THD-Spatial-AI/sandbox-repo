@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/THD-Spatial/demo-repository/internal/version"
+	"github.com/THD-Spatial/demo-repository/examples/go/internal/version"
 )
 
 func main() {

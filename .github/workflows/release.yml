@@ -30,13 +30,13 @@ jobs:
           DATE="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           mkdir -p dist
 
-          MOD_PATH="$(cat go.mod | head -n 1 | awk '{print $2}')"
-          MAIN_PKG="./app"
+          MOD_PATH="$(awk '/^module /{print $2}' examples/go/go.mod)"
+          MAIN_PKG="./examples/go/app"
 
           LDFLAGS="-s -w \
-            -X '${MOD_PATH}/internal/version.Version=${VERSION}' \
-            -X '${MOD_PATH}/internal/version.Commit=${COMMIT}' \
-            -X '${MOD_PATH}/internal/version.Date=${DATE}'"
+            -X '${MOD_PATH}/examples/go/internal/version.Version=${VERSION}' \
+            -X '${MOD_PATH}/examples/go/internal/version.Commit=${COMMIT}' \
+            -X '${MOD_PATH}/examples/go/internal/version.Date=${DATE}'"
 
           GOOS=linux GOARCH=amd64 go build -trimpath -ldflags "$LDFLAGS" -o dist/demo_linux_amd64 "$MAIN_PKG"
           GOOS=windows GOARCH=amd64 go build -trimpath -ldflags "$LDFLAGS" -o dist/demo_windows_amd64.exe "$MAIN_PKG"
