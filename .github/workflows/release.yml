@@ -40,7 +40,7 @@ jobs:
             -X '${MOD_PATH}/examples/go/internal/version.Date=${DATE}'"
 
           GOOS=linux GOARCH=amd64 go build -trimpath -ldflags "$LDFLAGS" -o ../../dist/demo_linux_amd64 "$MAIN_PKG"
-          GOOS=windows GOARCH=amd64 go build -trimpath -ldflags "$LDFLAGS" -o ../../dist demo_windows_amd64.exe "$MAIN_PKG"
+          GOOS=windows GOARCH=amd64 go build -trimpath -ldflags "$LDFLAGS" -o ../../dist/demo_windows_amd64.exe "$MAIN_PKG"
           GOOS=darwin  GOARCH=amd64 go build -trimpath -ldflags "$LDFLAGS" -o ../../dist/demo_darwin_amd64 "$MAIN_PKG"
           GOOS=darwin  GOARCH=arm64 go build -trimpath -ldflags "$LDFLAGS" -o ../../dist/demo_darwin_arm64 "$MAIN_PKG"
 
