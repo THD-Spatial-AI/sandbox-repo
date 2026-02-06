@@ -35,7 +35,7 @@ jobs:
 
           LDFLAGS="-s -w \
             -X '${MOD_PATH}/internal/version.Version=${VERSION}' \
-            -X '${MOD_PATH}internal/version.Commit=${COMMIT}' \
+            -X '${MOD_PATH}/internal/version.Commit=${COMMIT}' \
             -X '${MOD_PATH}/internal/version.Date=${DATE}'"
 
           GOOS=linux GOARCH=amd64 go build -trimpath -ldflags "$LDFLAGS" -o dist/demo_linux_amd64 "$MAIN_PKG"
