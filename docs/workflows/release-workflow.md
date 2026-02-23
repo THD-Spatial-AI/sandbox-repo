@@ -4,7 +4,7 @@ This repository uses **Git tags** and **GitHub Actions** to build release binari
 
 The Go application exposes a `--version` / `-v` flag and prints build metadata from an `internal/version` package (or equivalent).
 
-On every tagged release, the CI workflow at [`.github/workflows/release.yml`](.github/workflows/release.yml):
+On every tagged release, the CI workflow at [`.github/workflows/release.yml`](https://github.com/THD-Spatial/sandbox-repo/blob/main/.github/workflows/release.yml):
 
 - builds release binaries
 - injects the release tag, commit SHA, and build timestamp into the binary (via `-ldflags -X`)

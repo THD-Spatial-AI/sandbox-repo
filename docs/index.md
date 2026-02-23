@@ -11,4 +11,4 @@ Think of this as a safe place to try things, break things, and learn — without
 
 This repository contains working and tested workflows that can be adapted to your own repositories to make life easier.
 
-- [Go release workflow](docs/workflows/release-workflow.md)
+- [Go release workflow](workflows/release-workflow.md)
