@@ -1,41 +1,11 @@
 ![Auto Assign](https://github.com/THD-Spatial/demo-repository/actions/workflows/auto-assign.yml/badge.svg)
 
-# Demo repository
+# Sandbox repository
 
-This repository is a minimal demo for a Go CLI release workflow on GitHub.
+This repository is a experimenting and trying out new GitHub functionalities. Developers can use this repo for testing different Github features or refer to the existing example workflows before integrating them into their own repository. This is more like the safe space to do stupid things without worrying out breaking or `DELETING` something forever ;P.   
 
-## Go release workflow with build-time versioning
+## Example workflows
 
-The `./app` directory contains a minimal Go program. It prints a version string via the `internal/version` package.
+This repo contains some functional and tested workflows which can be adapted to your own repo to make your life easier. 
 
-On every tagged release, the CI workflow [.github/workflows/release.yml](.github/workflows/release.yml):
-
-- builds the release binaries
-- injects the release tag, commit SHA, and build timestamp into the binary (via `-ldflags -X`)
-- uploads the binaries as GitHub Release assets
-
-A full explanation of the workflow is in:
-
-- [docs/release-workflow.md](docs/workflows/release-workflow.md)
-
-### Checking the version
-
-Users can check which build they are running using `-v` or `--version`.
-
-Example:
-
-**Command:**
-
-```bash
-./demo_linux_amd64 -v
-```
-
-**Output:**
-
-```bash
-v0.1.1-alpha (commit a0abd66c5eb4d501c93211bafa89ade1d07a2c99, built 2026-02-06T17:11:32Z)
-```
-
-### Reusing this in other projects
-
-You can adapt this template in your own Go program to set up CI-driven release builds and reliable `--version` output, without making version-bump commits.
+- [Go release workflow](docs/workflows/release-workflow.md)
