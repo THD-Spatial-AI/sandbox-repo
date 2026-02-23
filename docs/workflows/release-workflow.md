@@ -129,8 +129,8 @@ on:
 ```
 
 Example:
-- `v0.1.1-alpha` ✅ triggers a release build
-- normal branch pushes ❌ do not trigger this workflow
+- `v0.1.1-alpha` triggers a release build
+- normal branch pushes do not trigger this workflow
 
 ### Permissions
 
