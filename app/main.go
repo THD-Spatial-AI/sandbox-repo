@@ -18,5 +18,5 @@ func main() {
 		os.Exit(0)
 	}
 
-	fmt.Println("Hello world!")
+	fmt.Println("Hello world! Welcome to the THD Spatial Sandbox Repository.")
 }
