@@ -19,4 +19,5 @@ func main() {
 	}
 
 	fmt.Println("Hello world! Welcome to the THD Spatial Sandbox Repository.")
+	fmt.Println("Testing branch naming convention rules")
 }
