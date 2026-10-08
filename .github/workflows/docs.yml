@@ -7,7 +7,7 @@ on:
 
 jobs:
   docs:
-    uses: THD-Spatial-AI/.github/.github/workflows/mkdocs-pages.yml@main
+    uses: THD-Spatial-AI/.github/.github/workflows/mkdocs-pages.yml@v1
     permissions:
       contents: read
       pages: write
