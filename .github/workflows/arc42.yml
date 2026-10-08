@@ -4,14 +4,12 @@ on:
   push:
     branches: [main]
     paths: ["documentation/**"]
-  pull_request:
-    paths: ["documentation/**", ".github/workflows/arc42.yml"]
   release:
     types: [published]
   workflow_dispatch:
 
 jobs:
   arc42:
-    uses: THD-Spatial-AI/.github/.github/workflows/arc42-pdf.yml@feat/arc42-pdf-workflow
+    uses: THD-Spatial-AI/.github/.github/workflows/arc42-pdf.yml@v1.1
     permissions:
       contents: write
