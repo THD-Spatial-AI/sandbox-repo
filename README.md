@@ -1,8 +1,8 @@
 
 # Sandbox Repository
 
-![Auto Assign](https://github.com/THD-Spatial/demo-repository/actions/workflows/auto-assign.yml/badge.svg)
 [![Release](https://github.com/THD-Spatial/sandbox-repo/actions/workflows/release.yml/badge.svg)](https://github.com/THD-Spatial/sandbox-repo/actions/workflows/release.yml)
+
 [![MkDocs](https://github.com/THD-Spatial/sandbox-repo/actions/workflows/docs.yml/badge.svg)](https://thd-spatial-ai.github.io/sandbox-repo)
 
 This repository is for experimenting with and trying out new GitHub features and workflows.
